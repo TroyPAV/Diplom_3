@@ -23,7 +23,7 @@ public class LoginPage {
      */
 
     //URL страницы авторизации
-    private final String loginPageURL = "https://stellarburgers.nomoreparties.site/login";
+    private final static String LOGIN_PAGE_URL = "https://stellarburgers.nomoreparties.site/login";
 
     //Локатор надписи Вход
     private By enterText = By.xpath(".//div//h2[text()= 'Вход']");
@@ -46,7 +46,7 @@ public class LoginPage {
 
     //Метод вызова страницы авторизации
     public LoginPage getLoginPage() {
-        driver.get(loginPageURL);
+        driver.get(LOGIN_PAGE_URL);
         new WebDriverWait(driver, 5)
                 .until(ExpectedConditions.elementToBeClickable(enterButton));
         return this;
@@ -56,7 +56,7 @@ public class LoginPage {
     public LoginPage loginPageIsDisplayed() {
         new WebDriverWait(driver, 5)
                 .until(ExpectedConditions.presenceOfElementLocated(enterText));
-        Assert.assertEquals(loginPageURL, driver.getCurrentUrl());
+        Assert.assertEquals(LOGIN_PAGE_URL, driver.getCurrentUrl());
         return this;
     }
 

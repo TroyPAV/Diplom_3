@@ -29,7 +29,7 @@ public class RegisterPage {
      */
 
     //URL страницы регистрации
-    private final String registerPageURL = "https://stellarburgers.nomoreparties.site/register";
+    private final static String REGISTER_PAGE_URL = "https://stellarburgers.nomoreparties.site/register";
 
     //Локатор надписи Регистрация
     private By registerText = By.xpath(".//div//h2[text()= 'Регистрация']");
@@ -65,7 +65,7 @@ public class RegisterPage {
 
     //Метод вызова страницы регистрации
     public RegisterPage getRegisterPage() {
-        driver.get(registerPageURL);
+        driver.get(REGISTER_PAGE_URL);
         new WebDriverWait(driver, 5)
                 .until(ExpectedConditions.presenceOfElementLocated(registerText));
         return this;

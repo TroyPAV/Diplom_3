@@ -23,10 +23,10 @@ public class ProfilePage {
      */
 
     //URL страницы аккаунта
-    private final String accountPageURL = "https://stellarburgers.nomoreparties.site/account";
+    private final static String ACCOUNT_PAGE_URL = "https://stellarburgers.nomoreparties.site/account";
 
     //URL страницы профиля пользователя
-    private final String profilePageURL = "https://stellarburgers.nomoreparties.site/account/profile";
+    private final static String PROFILE_PAGE_URL = "https://stellarburgers.nomoreparties.site/account/profile";
 
    //Локатор текста "В этом разделе вы можете изменить свои персональные данные"
     private By profileText = By.xpath(".//div//p[text()= 'В этом разделе вы можете изменить свои персональные данные']");
@@ -45,7 +45,7 @@ public class ProfilePage {
 
     //Метод вызова страницы авторизации
     public ProfilePage getProfilePage() {
-        driver.get(accountPageURL);
+        driver.get(ACCOUNT_PAGE_URL);
         new WebDriverWait(driver, 5)
                 .until(ExpectedConditions.presenceOfElementLocated(profileText));
         return this;
@@ -55,7 +55,7 @@ public class ProfilePage {
     public ProfilePage profilePageIsDisplayed() {
         new WebDriverWait(driver, 5)
                 .until(ExpectedConditions.presenceOfElementLocated(profileText));
-        Assert.assertEquals(profilePageURL, driver.getCurrentUrl());
+        Assert.assertEquals(PROFILE_PAGE_URL, driver.getCurrentUrl());
         return this;
     }
 

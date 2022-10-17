@@ -20,7 +20,7 @@ public class MainPage {
      */
 
     //URL главной страницы сервиса
-    private final String mainPageURL = "https://stellarburgers.nomoreparties.site/";
+    private final static String MAIN_PAGE_URL = "https://stellarburgers.nomoreparties.site/";
 
     //Локатор кнопки перехода в Личный кабинет
     @FindBy(linkText = "Личный Кабинет")
@@ -52,7 +52,7 @@ public class MainPage {
 
     //Метод вызова главной страницы
     public MainPage getMainPage() {
-        driver.get(mainPageURL);
+        driver.get(MAIN_PAGE_URL);
         new WebDriverWait(driver, 5)
                 .until(ExpectedConditions.elementToBeClickable(profileButton));
         return this;
@@ -62,7 +62,7 @@ public class MainPage {
     public MainPage mainPageIsDisplayed() {
         new WebDriverWait(driver, 5)
                 .until(ExpectedConditions.elementToBeClickable(orderButton));
-        Assert.assertEquals(mainPageURL, driver.getCurrentUrl());
+        Assert.assertEquals(MAIN_PAGE_URL, driver.getCurrentUrl());
         return this;
     }
 
@@ -137,16 +137,4 @@ public class MainPage {
                         "tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect"));
         return this;
     }
-
-    /*
-    //Проверка по изменению координаты элемента
-    public MainPage checkFillingScroll() throws InterruptedException {
-        Point location = bun.getLocation();
-        fillingButtonClick();
-        Thread.sleep(2000);
-        Point newLocation = bun.getLocation();
-        Assert.assertNotEquals(location, newLocation);
-        return this;
-    }
-    */
 }

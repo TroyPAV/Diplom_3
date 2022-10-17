@@ -21,7 +21,7 @@ public class ForgotPassPage {
      */
 
     //URL страницы авторизации
-    private final String forgotPassPageURL = "https://stellarburgers.nomoreparties.site/forgot-password";
+    private final static String FORGOT_PASS_PAGE_URL = "https://stellarburgers.nomoreparties.site/forgot-password";
 
     //Локатор кнопки "Восстановить"
     @FindBy(xpath = ".//button[text()= 'Восстановить']")
@@ -37,7 +37,7 @@ public class ForgotPassPage {
 
     //Метод вызова страницы авторизации
     public ForgotPassPage getForgotPassPage() {
-        driver.get(forgotPassPageURL);
+        driver.get(FORGOT_PASS_PAGE_URL);
         new WebDriverWait(driver, 5)
                 .until(ExpectedConditions.elementToBeClickable(restoreButton));
         return this;
